@@ -68,8 +68,9 @@ const Dashboard = () => {
       navigate('/')
     }
 
-
-    await axios.get('https://nivakcloudbackend.netlify.app/api/getme', {
+    const response = await axios.get('https://nivakcloudbackend.netlify.app/api/getme', { withCredentials: true });
+    console.log(response.data);
+    /*await axios.get('https://nivakcloudbackend.netlify.app/api/getme', {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -88,7 +89,7 @@ const Dashboard = () => {
     }).catch(error => {
       toast.warning("Signin again")
       navigate("/")
-    });
+    });*/
   }, []);
   
 
@@ -113,7 +114,7 @@ const Dashboard = () => {
         <ShowItems currentPath={currentPath} allFoldersAndFiles={allFoldersAndFiles} isActive={isActive} getAllFolderAndFiles={getAllFolderAndFiles} isLoading={isLoading} userId={userId}/>
       </div>
       <div id="profile">
-        <UserProfile/>
+        {/* <UserProfile/> */}
       </div>
     </div>
   )
