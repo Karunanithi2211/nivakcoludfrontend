@@ -68,9 +68,7 @@ const Dashboard = () => {
       navigate('/')
     }
 
-    const response = await axios.get('https://nivakcloudbackend.netlify.app/api/getme', { withCredentials: true });
-    console.log(response.data);
-    /*await axios.get('https://nivakcloudbackend.netlify.app/api/getme', {
+    fetch('/api/getme', {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -89,7 +87,7 @@ const Dashboard = () => {
     }).catch(error => {
       toast.warning("Signin again")
       navigate("/")
-    });*/
+    });
   }, []);
   
 
