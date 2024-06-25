@@ -71,9 +71,6 @@ const Dashboard = () => {
     fetch('/api/getme', {
       method: 'GET',
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     }).then(res => {
       return res.json();
     }).then(result => {
