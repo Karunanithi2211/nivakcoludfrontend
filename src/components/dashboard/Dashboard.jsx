@@ -52,7 +52,7 @@ const Dashboard = () => {
     }
   },[isActive])
 
-  useEffect(()=>{
+  useEffect(async ()=>{
     const auth = JSON.parse(localStorage.getItem('token'));
     if (auth){
         if (auth.token){
@@ -68,7 +68,7 @@ const Dashboard = () => {
     }
 
 
-    fetch('/api/getme', {
+    await axios.get('https://nivakcloudbackend.netlify.app/api/getme', {
       method: 'GET',
       credentials: 'include',
       headers: {
