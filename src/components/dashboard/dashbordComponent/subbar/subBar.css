@@ -1,0 +1,45 @@
+.subbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 5rem;
+}
+
+.subbar_list {
+    display: flex;
+    flex-direction: row;
+}
+
+.subbar_item {
+    margin: 0 .5rem;
+}
+
+.subbar_button {
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: .5rem;
+    font-size: var(--samll-font-size);
+    color: var(--logo-n-color);
+}
+
+.subbar_path {
+    color: #24a0ed;
+}
+
+
+/*----------> BREAKPOINST <----------*/
+/* Medium devices */
+@media screen and (max-width: 768px){
+    .subbar{
+        padding-top: 1rem;
+    }
+
+    .subbar_button-text {
+        display: none;
+    }
+}

@@ -1,0 +1,245 @@
+
+.login_row {
+    width: 70%;
+    height: 90%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+.region_left {
+    background-color: var(--logo-n-color);
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.region_right {
+    background-color: var(--logo-color);
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+
+/*----------> LOGO CONTAINER <----------*/
+
+.empty_logo {
+    width: 50%;
+}
+
+.logo_container {
+    width: 150px;
+    height: 150px;
+    background-color: var(--container-color);
+    border-radius: 50%;
+}
+
+.logo_container img {
+    width: 100px;
+}
+
+/*----------> LOGIN CONTAINER <----------*/
+
+.login_col {
+    width: 50%;
+}
+
+.login_h1 {
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-1);
+    color: var(--logo-n-color);
+}
+
+.login_form {
+    width: 90%;
+    margin-bottom: var(--mb-1);
+}
+
+.login_form_div {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--mb-2);
+    height: 4rem;
+}
+
+.login_form_div-tag {
+    position: absolute;
+    top: -0.75rem;
+    left: 2.5rem;
+    font-size: var(--smaller-font-size);
+    color: var(--container-color);
+    padding: 0.25rem 0.50rem;
+    background-color: var(--logo-n-color);
+    z-index: 10;
+    border-radius: 3rem;
+}
+
+.login_form_div-input {
+    position: absolute;
+    border: 2px solid var(--logo-n-color);
+    background: none;
+    color: var(--logo-n-color);
+    outline: none;
+    width: 88%;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.login_form_div-input::placeholder {
+    color: var(--logo-n-color);
+}
+
+.login_form-a {
+    color: var(--logo-n-color);
+    margin-bottom: var(--mb-1);
+}
+
+.login_form-button {
+    height: 3rem;
+    width: 90%;
+    border-radius: 3rem;
+    color: var(--container-color);
+    background-color: var(--logo-n-color);
+    transition: 0.3s ease-in-out;
+    margin-bottom: var(--mb-1);
+}
+
+.login_form-button:hover {
+    transform: scale(0.9);
+}
+
+
+.login_form-p {
+    color: var(--container-color);
+}
+
+.switch {
+    background: transparent;
+}
+
+
+
+/*----------> REGISTER CONTAINER <----------*/
+
+.reg_h1 {
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-2);
+    color: var(--logo-color);
+}
+
+.reg_form {
+    width: 90%;
+    margin-bottom: var(--mb-1);
+}
+
+.reg_form_div {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--mb-2);
+    height: 2.5rem;
+}
+
+.reg_form_div-tag {
+    position: absolute;
+    top: -1rem;
+    left: 1.5rem;
+    font-size: var(--tiny-font-size);
+    color: var(--container-color);
+    padding: 0.25rem 0.50rem;
+    background-color: var(--logo-color);
+    z-index: 10;
+    border-radius: 3rem;
+}
+
+.reg_form_div-input {
+    position: absolute;
+    border: 2px solid var(--logo-color);
+    background: none;
+    color: var(--logo-color);
+    outline: none;
+    width: 88%;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    z-index: 1;
+}
+
+.reg_form_div-input::placeholder {
+    color: var(--logo-color);
+}
+
+.reg_form-button {
+    height: 3rem;
+    width: 90%;
+    border-radius: 3rem;
+    color: var(--container-color);
+    background-color: var(--logo-color);
+    transition: 0.3s ease-in-out;
+    margin-bottom: var(--mb-1);
+}
+
+.reg_form-button:hover {
+    transform: scale(0.9);
+}
+
+.reg_form-p {
+    color: var(--container-color);
+}
+
+.reg_switch{
+    color: var(--logo-color);
+}
+
+/*----------> SWITCH CONTAINER <----------*/
+
+
+/*----------> BREAKPOINST <----------*/
+
+/* Large devices */
+@media screen and (max-width: 992px){
+    .login_form_div-input {
+        width: 80%;
+    }
+
+    .login_form-button {
+        width: 90%;
+    }
+
+    .login_form-p {
+        font-size: var(--samller-font-size);
+    }
+
+
+}
+
+/* Medium devices */
+@media screen and (max-width: 768px){
+    .login_col {
+        width: 100%;
+    }
+
+    .empty_logo {
+        width: 0%;
+    }
+
+    .logo_container, .reg_logocontainer {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    .logo_container img {
+        display: none;
+    }
+
+    .region_right, .region_left {
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px){
+    
+}
+
+/* Small devices */
+@media screen and (max-width: 350px){
+    .login_row {
+        width: 85%;
+    }
+}

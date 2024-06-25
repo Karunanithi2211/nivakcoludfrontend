@@ -1,13 +1,154 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*----------> GOOGLE FONT <----------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root{
+
+    /*----------> COLORS <----------*/
+    --hue: 0;
+    --sat: 0%;
+    --title-color: hsl(var(--hue), var(--sat), 20%);
+    --title-color-dark: hsl(var(--hue), var(--sat), 50%);
+    --text-color: hsl(var(--hue), var(--sat), 46%);
+    --body-color: hsl(var(--hue), var(--sat), 98%);
+    --container-color: #fff;
+    --logo-n-color: #343C3E;
+    --logo-color: #0EBE68;
+  
+    /* .5rem = 8px | 1rem = 16px */
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --samll-font-size: 0.875rem;
+    --samller-font-size: 0.815rem;
+    --tiny-font-size: 0.625rem;
+  
+    /*----------> FONT WEIGHT <----------*/
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+  
+    /*----------> MARGENES BOTTOM <----------*/
+    --mb-0-25: 0.25rem;
+    --mb-0-5: 0.5rem;
+    --mb-0-75: 0.75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+  
+    /*----------> Z-INDEX <----------*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+  }
+
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+  
+a{
+    text-decoration: none;
+    color: var(--logo-n-color);
+}
+  
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+p{
+    user-select: none; /* Standard syntax */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.loading_screen {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    height: 70vh;
+    background-color: #fff;
+    z-index: 999999;
+}
+
+.loading_screen p {
+    font-size: var(--h2-font-size);
+}
+
+.loading_screen p span {
+    margin-left: .5rem;
+}
+
+/*----------> REUSABLE CSS CLASSES <----------*/
+.align_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+/*----------> LAYOUT <----------*/
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+/*----------> BREAKPOINST <----------*/
+
+/* Large devices */
+@media screen and (max-width: 992px){
+    
+}
+
+/* Medium devices */
+@media screen and (max-width: 768px){
+    
+}
+
+@media screen and (max-width: 576px){
+  
+}
+
+/* Small devices */
+@media screen and (max-width: 350px){
+    
 }
