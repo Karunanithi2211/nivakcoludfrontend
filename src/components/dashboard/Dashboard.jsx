@@ -70,15 +70,15 @@ const Dashboard = () => {
       navigate('/')
     }
   }, []);
-  
-  useEffect(() => {
-    fetch('https://nivakcloudbackend.netlify.app/api/getme')
-    .then(res => {
+  /* .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
       return res.json();
-    }).then(result => {
+    }) */
+  useEffect(() => {
+    fetch('/api/getme')
+    .then(result => {
       console.log("Result has received: ", result);
       if (result.success) {
         console.log("Result is success");
