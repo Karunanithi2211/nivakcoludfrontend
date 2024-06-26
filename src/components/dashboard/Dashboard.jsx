@@ -78,7 +78,7 @@ const Dashboard = () => {
       return;
     }
 
-    fetch('/api/getme', {
+    fetch('https://nivakcloudbackend.netlify.app/api/getme', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
