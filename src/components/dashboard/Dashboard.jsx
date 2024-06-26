@@ -72,7 +72,7 @@ const Dashboard = () => {
   }, []);
   
   useEffect(() => {
-    fetch('/api/getme')
+    fetch('https://nivakcloudbackend.netlify.app/api/getme')
     .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
