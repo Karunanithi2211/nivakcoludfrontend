@@ -74,7 +74,9 @@ const Dashboard = () => {
   useEffect(() => {
     fetch('/api/getme')
     .then(res => {
-      console.log("Response is received: ",res.json);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
       return res.json();
     }).then(result => {
       console.log("Result has received: ", result);
