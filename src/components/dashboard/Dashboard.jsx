@@ -53,39 +53,45 @@ const Dashboard = () => {
     }
   },[isActive])
 
-  useEffect(async ()=>{
+  useEffect(()=>{
     const auth = JSON.parse(localStorage.getItem('token'));
+    console.log("1");
     if (auth){
         if (auth.token){
+          console.log("Token has recived");
         }
         else{
-          toast.warning("SignIn first")
+          console.log("There is no token");
           navigate('/')
         }
     }
     else{
-      toast.warning("SignIn first")
+      console.log("User is not Authenticated");
       navigate('/')
     }
-
-    fetch('/api/getme', {
-      method: 'GET',
-      credentials: 'include',
-    }).then(res => {
+  }, []);
+  
+  useEffect(() => {
+    fetch('/api/getme')
+    .then(res => {
+      console.log("Response is received: ",res.json);
       return res.json();
     }).then(result => {
+      console.log("Result has received: ", result);
       if (result.success) {
-        getAllFolderAndFiles(result.user.userId);
-        setuserId(result.user.userId)
+        console.log("Result is success");
+        console.log(result.data);
+        getAllFolderAndFiles(result.data.userId);
+        setuserId(result.data.userId)
       } else {
-        toast.warning("Signin again")
+        console.log("Result is unsuccess");
         navigate("/")
       }
     }).catch(error => {
-      toast.warning("Signin again")
+      console.log("Fetch getme Error: ",error);
       navigate("/")
     });
-  }, []);
+  }, [])
   
 
   return (

@@ -5,6 +5,7 @@ import { FaBars, FaFolderOpen, FaImages, FaVideo } from 'react-icons/fa6';
 import { FaFileAlt, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { IoClose } from 'react-icons/io5';
 
 const Header = ({isActive, setisActive}) => {
 
@@ -69,8 +70,7 @@ const Header = ({isActive, setisActive}) => {
                         </div>
                     </li>
                 </ul>
-
-                <i className="uil uil-times nav_close" onClick={()=>setToggle(!Toggle)}></i>
+                <IoClose className='nav_close' onClick={()=>setToggle(!Toggle)}/>
             </div>
 
             <div className="nav_toggle" onClick={()=>setToggle(!Toggle)}>
