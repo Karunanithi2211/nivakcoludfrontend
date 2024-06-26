@@ -37,9 +37,10 @@ const SignIn = () => {
 
         console.log(signIn)
 
-        if(signIn?.data.success === true){
+        if(signIn.data.success === true){
             setloginData(initLoginData);
-            localStorage.setItem("token", JSON.stringify(signIn?.data))
+            console.log("Storage token is ", JSON.stringify(signIn.data));
+            localStorage.setItem("token", JSON.stringify(signIn.data))
             toast.success("Sign In sccessfully")
             navigate('/dashboard')
         }

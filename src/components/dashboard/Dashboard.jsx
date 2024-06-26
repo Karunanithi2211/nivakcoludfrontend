@@ -55,7 +55,6 @@ const Dashboard = () => {
 
   useEffect(()=>{
     const auth = JSON.parse(localStorage.getItem('token'));
-    console.log("1");
     if (auth){
         if (auth.token){
           console.log("Token has recived");
@@ -70,15 +69,27 @@ const Dashboard = () => {
       navigate('/')
     }
   }, []);
-  /* .then(res => {
+  /*  */
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      navigate("/");
+      return;
+    }
+
+    fetch('/api/getme', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
       return res.json();
-    }) */
-  useEffect(() => {
-    fetch('/api/getme')
-    .then(result => {
+    }).then(result => {
       console.log("Result has received: ", result);
       if (result.success) {
         console.log("Result is success");
