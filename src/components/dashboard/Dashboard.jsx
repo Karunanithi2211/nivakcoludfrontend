@@ -80,26 +80,11 @@ const Dashboard = () => {
       navigate("/");
       return;
     }
-
-    api.post('/api/getme', {
+    console.log("sending ", token);
+    const response = api.post('/api/getme', {
        token: token
     })
-    .then(result => {
-      console.log("Result has received: ", result);
-      if (result.data.success) {
-        console.log("Result is success");
-        console.log(result.data);
-        console.log("folder path: ", result.data.data.userId);
-        getAllFolderAndFiles(result.data.data.userId);
-        setuserId(result.data.data.userId)
-      } else {
-        console.log("Result is unsuccess");
-        navigate("/")
-      }
-    }).catch(error => {
-      console.log("Fetch getme Error: ",error);
-      navigate("/")
-    });
+    console.log("response:", response);
   }, [])
   
 
@@ -124,7 +109,7 @@ const Dashboard = () => {
         <ShowItems currentPath={currentPath} allFoldersAndFiles={allFoldersAndFiles} isActive={isActive} getAllFolderAndFiles={getAllFolderAndFiles} isLoading={isLoading} userId={userId}/>
       </div>
       <div id="profile">
-        <UserProfile/>
+        {/*<UserProfile/>*/}
       </div>
     </div>
   )
