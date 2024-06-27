@@ -29,11 +29,14 @@ const Dashboard = () => {
 
     try {
       setisLoading(true)
-      const response = await api.post('/api/cloud/allfolderfiles/', { folderPath: path });
+      console.log("fetching.......");
+      const response = await api.post('/api/cloud/allfolderfiles', { folderPath: path });
+      console.log("fetched: "+response.data);
       setallFoldersAndFiles(response.data.paths);
       setcurrentPath(path);
       setisLoading(false)
     } catch (error) {
+      console.log(error);
       toast.error("Error in fetching data, SignIn again")
       navigate('/')
     }
@@ -78,24 +81,17 @@ const Dashboard = () => {
       return;
     }
 
-    fetch('https://nivakcloud.netlify.app/api/getme', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json();
-    }).then(result => {
+    api.post('/api/getme', {
+       token: token
+    })
+    .then(result => {
       console.log("Result has received: ", result);
-      if (result.success) {
+      if (result.data.success) {
         console.log("Result is success");
         console.log(result.data);
-        getAllFolderAndFiles(result.data.userId);
-        setuserId(result.data.userId)
+        console.log("folder path: ", result.data.data.userId);
+        getAllFolderAndFiles(result.data.data.userId);
+        setuserId(result.data.data.userId)
       } else {
         console.log("Result is unsuccess");
         navigate("/")
@@ -128,7 +124,7 @@ const Dashboard = () => {
         <ShowItems currentPath={currentPath} allFoldersAndFiles={allFoldersAndFiles} isActive={isActive} getAllFolderAndFiles={getAllFolderAndFiles} isLoading={isLoading} userId={userId}/>
       </div>
       <div id="profile">
-        {/* <UserProfile/> */}
+        <UserProfile/>
       </div>
     </div>
   )

@@ -62,19 +62,18 @@ const UserProfile = () => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const getProfileData = () => {
-    fetch('/api/getme', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(res => {
-      return res.json();
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      navigate("/");
+      return;
+    }
+    api.post('/api/getme', {
+       token: token
     }).then(result => {
-      if (result.success) {
-        setprofile(result.user)
-        setemail(result.user.email)
-        console.log("Set Email: ", result.user.email);
+      if (result.data.success) {
+        setprofile(result.data.data)
+        setemail(result.data.data.email)
       } else {
         toast.warning("Signin again")
         navigate("/")
@@ -87,7 +86,6 @@ const UserProfile = () => {
 
   useEffect(() => {
     getProfileData()
-    console.log(profile?.profileURL);
   }, [])
   
   
