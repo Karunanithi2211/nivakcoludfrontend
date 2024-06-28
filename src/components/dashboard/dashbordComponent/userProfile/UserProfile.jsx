@@ -79,6 +79,7 @@ const UserProfile = () => {
         navigate("/")
       }
     }).catch(error => {
+      console.log("get me ",error);
       toast.warning("Signin again")
       navigate("/")
     });
