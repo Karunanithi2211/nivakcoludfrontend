@@ -72,7 +72,8 @@ const Dashboard = () => {
       navigate('/')
     }
   }, []);
-  /*  */
+
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -81,10 +82,13 @@ const Dashboard = () => {
       return;
     }
     console.log("sending ", token);
-    const response = api.post('/api/getme', {
-       token: token
+    axios.post('https://nivakcloud.netlify.app/.netlify/functions/api/getme')
+    .then(response => {
+      console.log("get me response: ", response.data);
     })
-    console.log("response:", response);
+    .catch(error => {
+      console.error('Get me Error:', error);
+    });
   }, [])
   
 
