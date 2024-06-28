@@ -82,7 +82,7 @@ const Dashboard = () => {
       return;
     }
     console.log("sending ", token);
-    axios.post('https://nivakcloud.netlify.app/.netlify/functions/api/getme')
+    axios.post('https://nivakcloud.netlify.app/api/getme')
     .then(response => {
       console.log("get me response: ", response.data);
     })
