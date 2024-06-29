@@ -82,7 +82,11 @@ const Dashboard = () => {
       return;
     }
     console.log("sending ", token);
-    api.post('/api/getme')
+    api.post('/api/getme', {}, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
     .then(response => {
       console.log("get me response: ", response.data);
     })

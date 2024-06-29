@@ -28,33 +28,6 @@ const SubBar = ({setisCreateFolderModalOpen, setisUploadFileModalOpen, currentPa
     []
   );
 
-  const present_key = "q6qxe0fb"
-  const cloud_name = "dzxh08cyi"
-
-  const [file, setfile] = useState()
-
-  const handleFile = (event) =>{
-    const file = event.target.files[0]
-    const formData = new FormData()
-    formData.append('file', file)
-    formData.append('upload_preset', present_key)
-    formData.append('folder', 'cloudProject')
-
-    let resource_type = 'auto';
-    if (file.type.startsWith('image/')) {
-      resource_type = 'image';
-    } else if (file.type.startsWith('video/')) {
-      resource_type = 'video';
-    } else if (file.type.startsWith('audio/')) {
-      resource_type = 'audio';
-    } else {
-      resource_type = 'raw';
-    }
-
-    axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/${resource_type}/upload`, formData).then(res => console.log(res.data.secure_url)).catch(err => console.log(err))
-
-  }
-
   useEffect(() => {
      setpaths(currentPath?.split("/"));
   }, [currentPath])
